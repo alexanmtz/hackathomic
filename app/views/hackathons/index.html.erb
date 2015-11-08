@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hackathons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start</th>
+      <th>Ends</th>
+      <th>Location</th>
+      <th>Teams</th>
+      <th>Picture</th>
+      <th>Link</th>
+      <th>Languages</th>
+      <th>Frameworks</th>
+      <th>Github</th>
+      <th>Prize</th>
+      <th>Rules</th>
+      <th>Projects</th>
+      <th>Tags</th>
+      <th>Category</th>
+      <th>User</th>
+      <th>Desc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hackathons.each do |hackathon| %>
+      <tr>
+        <td><%= hackathon.name %></td>
+        <td><%= hackathon.start %></td>
+        <td><%= hackathon.ends %></td>
+        <td><%= hackathon.location %></td>
+        <td><%= hackathon.teams %></td>
+        <td><%= hackathon.picture %></td>
+        <td><%= hackathon.link %></td>
+        <td><%= hackathon.languages %></td>
+        <td><%= hackathon.frameworks %></td>
+        <td><%= hackathon.github %></td>
+        <td><%= hackathon.prize %></td>
+        <td><%= hackathon.rules %></td>
+        <td><%= hackathon.projects %></td>
+        <td><%= hackathon.tags %></td>
+        <td><%= hackathon.category %></td>
+        <td><%= hackathon.user %></td>
+        <td><%= hackathon.desc %></td>
+        <td><%= link_to 'Show', hackathon %></td>
+        <td><%= link_to 'Edit', edit_hackathon_path(hackathon) %></td>
+        <td><%= link_to 'Destroy', hackathon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hackathon', new_hackathon_path %>

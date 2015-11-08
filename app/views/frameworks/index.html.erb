@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Frameworks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @frameworks.each do |framework| %>
+      <tr>
+        <td><%= framework.name %></td>
+        <td><%= link_to 'Show', framework %></td>
+        <td><%= link_to 'Edit', edit_framework_path(framework) %></td>
+        <td><%= link_to 'Destroy', framework, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Framework', new_framework_path %>

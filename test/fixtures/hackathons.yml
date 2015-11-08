@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start: 2015-11-08 17:55:34
+  ends: 2015-11-08 17:55:34
+  location: 
+  teams_id: 
+  picture: MyString
+  link: MyString
+  languages: 
+  frameworks: 
+  github: MyString
+  prize: MyString
+  rules: 
+  projects: 
+  tags: 
+  category: 
+  user_id: 
+  desc: MyString
+
+two:
+  name: MyString
+  start: 2015-11-08 17:55:34
+  ends: 2015-11-08 17:55:34
+  location: 
+  teams_id: 
+  picture: MyString
+  link: MyString
+  languages: 
+  frameworks: 
+  github: MyString
+  prize: MyString
+  rules: 
+  projects: 
+  tags: 
+  category: 
+  user_id: 
+  desc: MyString
