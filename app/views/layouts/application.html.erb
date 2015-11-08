@@ -74,7 +74,13 @@
 										<a href="#"><%= current_user.email %></a>	
 										<ul>
 											<li>
-												<%= link_to('Edit registration', edit_user_registration_path) %>
+												<%= link_to('Create Team', new_team_path) %>
+											</li>
+											<li>
+												<%= link_to('My Teams', teams_path) %>
+											</li>
+											<li>
+												<%= link_to('Account', edit_user_registration_path) %>
 											</li>
 											<li>
 												<%= link_to('Logout', destroy_user_session_path, :method => 'delete') %> 

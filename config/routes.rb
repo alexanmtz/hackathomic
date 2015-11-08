@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :teams
   root to: "hackathomic#index"
   
   get 'hackathomic/styleguide'
