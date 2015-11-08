@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   
+  resources :sponsors
+  resources :categories
+  resources :tags
+  resources :projects
+  resources :rules
+  resources :frameworks
+  resources :locations
+  resources :languages
+  resources :hackathons
   resources :teams
   root to: "hackathomic#index"
   

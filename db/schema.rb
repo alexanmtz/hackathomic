@@ -11,7 +11,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108170754) do
+ActiveRecord::Schema.define(version: 20151108201947) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "frameworks", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hackathons", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start"
+    t.datetime "ends"
+    t.integer  "location_id"
+    t.integer  "teams_id"
+    t.string   "picture"
+    t.string   "link"
+    t.integer  "languages_id"
+    t.integer  "frameworks_id"
+    t.string   "github"
+    t.string   "prize"
+    t.integer  "rules_id"
+    t.integer  "projects_id"
+    t.integer  "tags_id"
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.string   "desc"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "sponsor_id"
+  end
+
+  add_index "hackathons", ["sponsor_id"], name: "index_hackathons_on_sponsor_id"
+  add_index "hackathons", ["teams_id"], name: "index_hackathons_on_teams_id"
+  add_index "hackathons", ["user_id"], name: "index_hackathons_on_user_id"
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "site"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "contact"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,6 +80,47 @@ ActiveRecord::Schema.define(version: 20151108170754) do
 
   add_index "memberships", ["team_id"], name: "index_memberships_on_team_id"
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.string   "picture"
+    t.string   "desc"
+    t.integer  "languages_id"
+    t.integer  "frameworks_id"
+    t.integer  "tags_id"
+    t.integer  "category_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "projects", ["category_id"], name: "index_projects_on_category_id"
+  add_index "projects", ["frameworks_id"], name: "index_projects_on_frameworks_id"
+  add_index "projects", ["languages_id"], name: "index_projects_on_languages_id"
+  add_index "projects", ["tags_id"], name: "index_projects_on_tags_id"
+  add_index "projects", ["team_id"], name: "index_projects_on_team_id"
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+
+  create_table "rules", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"

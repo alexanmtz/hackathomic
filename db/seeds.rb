@@ -7,17 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-user1 = User.create!(email: 'palo@alto.com', 
+user1 = User.first_or_create!(email: 'palo@alto.com', 
              password: '123456789', 
              password_confirmation: '123456789')
              
-user2 = User.create!(email: 'mat@alto.com', 
+user2 = User.first_or_create!(email: 'mat@alto.com', 
              password: '123456789', 
              password_confirmation: '123456789')
              
-user3 = User.create!(email: 'paul@alto.com', 
+user3 = User.first_or_create!(email: 'paul@alto.com', 
              password: '123456789', 
              password_confirmation: '123456789')
              
 
-Team.create!(name: 'footeam', user: user1, users: [user2, user3] )
+Team.first_or_create!(name: 'footeam', user: user1, users: [user2, user3] )
+
+
