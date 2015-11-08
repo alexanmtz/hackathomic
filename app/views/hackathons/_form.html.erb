@@ -19,6 +19,9 @@
     		<%= f.text_field :name, :label => 'Hackathon name' %>
 		</div>
 		<div class="form-group">
+    		<%= f.text_area :desc, :label => 'About this Hackathon' %>
+		</div>
+		<div class="form-group">
     		<%= f.datetime_field :start, value: Time.now %>
 		</div>
 		<div class="form-group">
