@@ -28,7 +28,7 @@
   </div>
   <div class="field">
   <strong>Members:</strong>
-  <%= f.select :users, options_from_collection_for_select(User.all, "id", "email"), {}, multiple: true %>
+  <%= f.select :users, options_from_collection_for_select(User.all, 'id', 'email'), {include_hidden: false}, multiple: true %>
   </div>
   <div class="actions">
     <%= f.submit %>

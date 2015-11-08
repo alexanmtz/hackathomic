@@ -1,12 +1,14 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  
+  before_action :authenticate_user!, :except => [:show, :index]
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.where(user_id: current_user.id)
+    @teams = Team.all
   end
-
+  
   # GET /teams/1
   # GET /teams/1.json
   def show
@@ -24,7 +26,10 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
+    
     @team = Team.new(team_params)
+    
+    @team.users = User.find(params[:team][:users])
     
     respond_to do |format|
       if @team.save
@@ -40,6 +45,9 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1
   # PATCH/PUT /teams/1.json
   def update
+    
+    @team.users = User.find(params[:team][:users])
+    
     respond_to do |format|
       if @team.update(team_params)
         format.html { redirect_to @team, notice: 'Team was successfully updated.' }
