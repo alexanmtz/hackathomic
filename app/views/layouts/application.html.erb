@@ -19,13 +19,46 @@
 
 			<!-- Header -->
 				<div id="header-wrapper">
-					<p class="notice"><%= notice %></p>
-       				<p class="alert"><%= alert %></p>
+       				<script>
+       				
+       					var template = '<div data-notify="container" class="alert alert-{0}" role="alert">' +
+		'<span data-notify="icon"></span> ' +
+		'<span data-notify="title">{1}</span> ' +
+		'<span data-notify="message">{2}</span>' +
+		'<div class="progress" data-notify="progressbar">' +
+			'<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+		'</div>' +
+		'<a href="{3}" target="{4}" data-notify="url"></a>' +
+	'</div>';
+       				
+       					<% if notice %>
+						$.notify({
+							// options
+							message : '> <%= notice %>'
+						}, {
+							// settings
+							type : 'danger',
+							template: template
+						});
+						<% end %>
+						<% if alert %>
+						$.notify({
+							// options
+							message : '> <%= alert %>'
+						}, {
+							// settings
+							type : 'danger',
+							template: template
+						});
+						<% end %>
+       				</script>
+       				
+       				
 					<div id="header">
 
 						<!-- Logo -->
 							<h1>
-								<a href="index.html" class="main-link">
+								<a href="<%= root_url %>" class="main-link">
 									<%= image_tag "logo.svg" %>
 									<span>hackathomic</span>
 									<small>The hackathon platform</small>

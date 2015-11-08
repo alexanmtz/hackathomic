@@ -17,5 +17,6 @@
 //= require skel-viewport.min
 //= require util
 //= require turbolinks
+//= require bootstrap-notify
 //= require application
 //= require main
