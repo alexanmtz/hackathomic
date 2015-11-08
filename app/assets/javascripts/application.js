@@ -20,3 +20,4 @@
 //= require bootstrap-notify
 //= require application
 //= require main
+

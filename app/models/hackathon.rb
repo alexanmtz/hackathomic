@@ -1,5 +1,5 @@
 class Hackathon < ActiveRecord::Base
-  belongs_to :teams
+  has_many :teams
   belongs_to :user
   
   has_many :rules

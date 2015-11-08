@@ -2,9 +2,20 @@
  * General styles
  */
 
+a {
+  text-decoration: none;
+}
+
 strong.inverse {
   font-weight: bold;
   color: rgb(133, 132, 132);
+}
+
+form label {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2em;
+  
 }
 
 .main-link {
@@ -16,5 +27,9 @@ strong.inverse {
     font-size: 0.6em;
     display: block;
     color: #999;
+  }
+  &:hover {
+    background: transparent;
+    color: black;
   }
 }

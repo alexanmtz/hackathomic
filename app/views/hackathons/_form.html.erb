@@ -1,4 +1,4 @@
-<%= form_for(@hackathon) do |f| %>
+<%= bootstrap_form_for(@hackathon) do |f| %>
   <% if @hackathon.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hackathon.errors.count, "error") %> prohibited this hackathon from being saved:</h2>
@@ -10,61 +10,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
-  </div>
-  <div class="field">
-    <%= f.label :ends %><br>
-    <%= f.datetime_select :ends %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :teams_id %><br>
-    <%= f.text_field :teams_id %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.text_field :picture %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :github %><br>
-    <%= f.text_field :github %>
-  </div>
-  <div class="field">
-    <%= f.label :prize %><br>
-    <%= f.text_field :prize %>
-  </div>
-  <div class="field">
-    <%= f.label :rules %><br>
-    <%= f.text_field :rules %>
-  </div>
-  <div class="field">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :desc %><br>
-    <%= f.text_field :desc %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<section class="box">
+		<header>
+			<h3>Why becoming a Hackathomic?</h3>
+		</header>
+		<p>As a hackathon organizer, a Hackathomic can easily organize a hackathon by registering into the platform, creating a new event and customizing their own page. There’s no need to start a new site from zero every time you would like to set up a hackathon.</p>
+		<div class="form-group">
+    		<%= f.text_field :name, :label => 'Hackathon name' %>
+		</div>
+		<div class="form-group">
+    		<%= f.datetime_field :start, value: Time.now %>
+		</div>
+		<div class="form-group">
+    		<%= f.datetime_field :ends, value: 2.days.from_now.change(hour: 7) %>
+		</div>
+		<div class="form-group">
+    		<%= f.text_field :link, :label => 'Website' %>
+		</div>
+		<footer>
+			<%= f.submit :class => "button alt" %>
+		</footer>
+	</section>
 <% end %>
