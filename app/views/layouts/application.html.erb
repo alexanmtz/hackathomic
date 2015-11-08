@@ -19,6 +19,8 @@
 
 			<!-- Header -->
 				<div id="header-wrapper">
+					<p class="notice"><%= notice %></p>
+       				<p class="alert"><%= alert %></p>
 					<div id="header">
 
 						<!-- Logo -->
@@ -34,7 +36,19 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.html">Home</a></li>
+									<% if user_signed_in? %>
+									<li>
+										<a href="#"><%= current_user.email %></a>	
+										<ul>
+											<li>
+												<%= link_to('Edit registration', edit_user_registration_path) %>
+											</li>
+											<li>
+												<%= link_to('Logout', destroy_user_session_path, :method => 'delete') %> 
+											</li>
+										</ul>
+									</li>
+									<% end %>
 									<li>
 										<a href="#">Dropdown</a>
 										<ul>

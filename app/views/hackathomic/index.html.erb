@@ -20,12 +20,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="12u">
-
 				<ul class="actions">
-					<li><a href="#" class="button big">Create new Hackathon</a></li>
+					<% if user_signed_in? %>
+					<li><a href="#newhackathonurl" class="button big">Create new Hackathon</a></li>
+					<% else %>
+					<li><a href="<%= new_user_session_url %>" class="button big">Create new Hackathon</a></li>
+					<% end %>
 					<li><a href="#" class="button alt big">Explore Hackathons</a></li>
 				</ul>
-
 			</div>
 		</div>
 		<div class="row">
