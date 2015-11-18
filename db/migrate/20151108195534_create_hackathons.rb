@@ -5,7 +5,7 @@ class CreateHackathons < ActiveRecord::Migration
       t.datetime :start
       t.datetime :ends
       t.references :location
-      t.references :teams, index: true, foreign_key: true
+      #t.references :teams, index: true, foreign_key: true
       t.string :picture
       t.string :link
       t.references :languages
